@@ -1,6 +1,7 @@
-export PATH="/opt/homebrew/bin:$PATH"
+
+export PATH="$(brew --prefix)/bin:$PATH"
+export PATH="$(brew --prefix)/sbin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
 
@@ -11,7 +12,6 @@ NEWLINE=$'\n'
 POWDER_BLUE=$(tput setaf 153)
 WEIRD_BLUE=$(tput setaf 31)
 export PROMPT="${WEIRD_BLUE}%n 👻 :%~ ${POWDER_BLUE}\$(git-radar --zsh --fetch) %(?..%? ) ${NEWLINE}$ %f"
-
 
 autoload -Uz compinit && compinit
 
