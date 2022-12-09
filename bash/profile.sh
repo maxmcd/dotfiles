@@ -52,32 +52,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export FZF_DEFAULT_OPTS="--height=10"
 
 
-alias ss='live-server'
-alias gl='git log --graph --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white)"'
-alias gocover='go test -coverpkg=./... -coverprofile=coverage.out ./... && go tool cover -html=coverage.out && rm coverage.out'
-alias gbr="git for-each-ref --sort='committerdate' --format='%(refname)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--' | column -t "
-alias pt=papertrail
-alias sudo='sudo '
-
-
-alias f='cd $(find $GITHUB -maxdepth 2 -type d | fzf || echo ".")'
-alias m='cd $(find $VOLTUS -name Makefile -printf "%h\n" | fzf || echo ".")'
-alias br="git checkout \$(gbr | tail -n 100 | awk '{ print \$1 }' | fzf || echo \"\")"
-
-alias v='cd $VOLTUS'
-
-alias pw='pwgen -n 32'
-
-alias gpo="git push origin \$(__git_ps1 '%s') --tags"
-alias ggo="git push github \$(__git_ps1 '%s') --tags"
-alias glo="git pull origin \$(__git_ps1 '%s')"
-alias gs="git status"
-alias gmm="git fetch origin main:main && git merge main --no-edit"
-alias gst="git stash"
-alias gsta="git stash apply"
-alias dc="docker-compose"
-alias k="kubectl"
-
+# TODO: make linux only
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
@@ -88,32 +63,6 @@ __git_complete gm _git_merge
 __git_complete gp _git_pull
 __git_complete gb _git_branch
 
-
-alias g="git"
-alias gc="git checkout"
-alias gm="git merge"
-alias gp="git pull"
-alias gb="git branch"
-alias gca="git commit --amend --no-edit"
-alias ll="ls -lahp"
-alias l="tree --dirsfirst -ChFLa 1"
-alias l2="tree --dirsfirst -ChFLa 2"
-alias l3="tree --dirsfirst -ChFLa 3"
-alias l4="tree --dirsfirst -ChFLa 4"
-alias l5="tree --dirsfirst -ChFLa 5"
-alias d="du -chd 1"
-
-wgett () {
-    aria2c -x 10 -s 10 $1
-}
-
-gum () {
-    git add -u
-    git commit -m "$1"
-    gpo
-}
-
-ggb() { git grep -n "$1" | while IFS=: read i j k; do git blame -f -L $j,$j $i; done }
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 

@@ -20,6 +20,17 @@ alias gb="git branch"
 # Recent branches I've been working on
 alias gbr="git for-each-ref --sort='committerdate' --format='%(refname)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--' | column -t "
 
+alias gca="git commit --amend --no-edit"
+
+gum () {
+    git add -u
+    git commit -m "$1"
+    gpo
+}
+
+alias br="git checkout \$(gbr | tail -n 100 | awk '{ print \$1 }' | fzf || echo \"\")"
+
+
 ###########
 # Generic #
 ###########
@@ -37,9 +48,14 @@ alias dc="docker-compose"
 
 alias pw='pwgen -n 32'
 
+wgett () {
+    aria2c -x 10 -s 10 $1
+}
+
 ################
 # Fs discovery #
 ################
+
 
 # don't forget about ncdu as well
 
@@ -50,3 +66,7 @@ alias l3="tree --dirsfirst -ChFLa 3"
 alias l4="tree --dirsfirst -ChFLa 4"
 alias l5="tree --dirsfirst -ChFLa 5"
 alias d="du -chd 1"
+
+alias f='cd $(find $GITHUB -maxdepth 2 -type d | fzf || echo ".")'
+alias m='cd $(find $VOLTUS -name Makefile -printf "%h\n" | fzf || echo ".")'
+
