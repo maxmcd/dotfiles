@@ -6,16 +6,7 @@ alias gpo="git push origin \$(git branch --show-current) --tags"
 alias ggo="git push github \$(git branch --show-current) --tags"
 alias glo="git pull origin \$(git branch --show-current)"
 alias gl='git log --graph --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white)"'
-alias gs="git status"
 alias gmm="git fetch origin master:master && git merge master"
-alias gst="git stash"
-alias gsta="git stash apply"
-
-alias g="git"
-alias gc="git checkout"
-alias gm="git merge"
-alias gp="git pull"
-alias gb="git branch"
 
 # Recent branches I've been working on
 alias gbr="git for-each-ref --sort='committerdate' --format='%(refname)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--' | column -t "

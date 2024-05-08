@@ -1,21 +1,13 @@
 
 
-# set PATH so it includes private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
 
-f# Fly.io
-PATH="$HOME/.fly/bin:$PATH"
+
 
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
 
-# init brew
-eval "$($HOME/.linuxbrew/bin/brew shellenv)"
+
+
 
 # https://github.com/junegunn/fzf/issues/1812#issuecomment-573329933
 source $(brew --prefix fzf)/shell/key-bindings.bash
