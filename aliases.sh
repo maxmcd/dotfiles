@@ -35,13 +35,10 @@ alias br="git checkout \$(gbr | tail -n 100 | awk '{ print \$1 }' | fzf || echo 
 # Generic #
 ###########
 
-alias v='cd $VOLTUS'
-
 alias ss='live-server'
 
 alias gocover='go test -coverpkg=./... -coverprofile=coverage.out ./... && go tool cover -html=coverage.out && rm coverage.out'
 
-# TODO: ??? this is here for a reason, figure it out...
 alias sudo='sudo '
 
 alias dc="docker-compose"
@@ -67,6 +64,5 @@ alias l4="tree --dirsfirst -ChFLa 4"
 alias l5="tree --dirsfirst -ChFLa 5"
 alias d="du -chd 1"
 
-alias f='cd $(find $GITHUB -maxdepth 2 -type d | fzf || echo ".")'
-alias m='cd $(find $VOLTUS -name Makefile -printf "%h\n" | fzf || echo ".")'
 
+alias f='cd $(find $(go env GOPATH)/src/ -maxdepth 3 -type d | fzf || echo ".")'
