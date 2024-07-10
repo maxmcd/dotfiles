@@ -31,3 +31,10 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 source $HOME/.venv/bin/activate
+
+source ~/.secrets
+
+# TODO: use detected brew path
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

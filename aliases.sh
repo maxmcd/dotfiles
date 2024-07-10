@@ -6,7 +6,7 @@ alias gpo="git push origin \$(git branch --show-current) --tags"
 alias ggo="git push github \$(git branch --show-current) --tags"
 alias glo="git pull origin \$(git branch --show-current)"
 alias gl='git log --graph --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white)"'
-alias gmm="git fetch origin master:master && git merge master"
+alias gmm="git fetch origin main:main && git merge main"
 
 # Recent branches I've been working on
 alias gbr="git for-each-ref --sort='committerdate' --format='%(refname)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--' | column -t "
@@ -19,8 +19,19 @@ gum () {
     gpo
 }
 
-alias br="git checkout \$(gbr | tail -n 100 | awk '{ print \$1 }' | fzf || echo \"\")"
+alias br="git checkout \$(gbr | awk '{ print \$1 }' | tac | fzf  || echo \"\")"
+alias ga="git add \$(git status --porcelain | sed s/^...// | fzf  || echo \"\")"
 
+alias gds="git diff --staged"
+alias gs="git status"
+alias gst="git stash"
+alias gsta="git stash apply"
+
+alias g="git"
+alias gc="git checkout"
+alias gm="git merge"
+alias gp="git pull"
+alias gb="git branch"
 
 ###########
 # Generic #
