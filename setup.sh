@@ -18,9 +18,6 @@ if ! command -v brew &> /dev/null; then
     echo "Brew was not initialized, make sure it's installed"
 fi
 
-source $(brew --prefix)/opt/fzf/shell/completion.zsh
-source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
-
 export EDITOR=vim
 
 export NVM_DIR="$HOME/.nvm"
