@@ -8,8 +8,7 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 
 autoload -Uz compinit && compinit
 
-source $(brew --prefix)/opt/fzf/shell/completion.zsh
-source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
+source <(fzf --zsh)
 
 export GOPATH="$HOME/go/"
 export GITHUB=$GOPATH/src/github.com/
